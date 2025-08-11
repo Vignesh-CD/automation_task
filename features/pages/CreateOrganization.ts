@@ -56,43 +56,19 @@ async selectCity(cityName: string) {
   const pin = this.page.getByPlaceholder('XXXXXX');
   await expect(pin).toBeVisible({timeout:20000});
   await pin.fill(pincode);
-  }
-async selectRandomAssessmentType() {
-    const options = ['aptitude+', 'AI-powered Communication', 'coding'];
-
-    const randomOption = options[Math.floor(Math.random() * options.length)];
-    const checkbox = this.page.locator(`//p[text()='${options}']//parent::div//child::input[@type="${randomOption}"]`
-    );
-
-    await checkbox.waitFor({ state: 'visible' });
-
-    const isChecked = await checkbox.getAttribute('aria-checked');
-    if (isChecked !== 'true') {
-      await checkbox.click();
-    }
-
-    await expect(checkbox).toHaveAttribute('aria-checked', 'true');
+}
+  async selectAssessmentType() {
+  const checkbox = this.page.locator(`//p[text()='Aptitude+']/parent::div//input[@type='checkbox']`);
+  await checkbox.check();
   }
 
-  async selectRandomAssessmentLevel() {
-    const options = ['practice', 'graded', 'interview'];
-
-    const randomOption = options[Math.floor(Math.random() * options.length)];
-
-    const checkbox = this.page.locator(`//p[text()='${options}']//parent::div//child::input[@type="${randomOption}"]`
-    );
-    await checkbox.waitFor({ state: 'visible' });
-
-    const isChecked = await checkbox.getAttribute('aria-checked');
-    if (isChecked !== 'true') {
-      await checkbox.click();
-    }
-
-    await expect(checkbox).toHaveAttribute('aria-checked', 'true');
+  async selectAssessmentLevel() {
+  const checkbox = this.page.locator(`//p[text()='Practice']/parent::div//input[@type='checkbox']`);
+  await checkbox.check();
   }
 
   async submitOrganizationForm() {
-    await this.page.getByRole('button', { name: 'Create Organization' }).click();
+    await this.page.getByRole('button', { name: 'Create' }).click();
   }
 
   async expectNoOrgNameValidationError() {

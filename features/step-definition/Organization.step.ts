@@ -8,7 +8,6 @@ import { generateRandomPincode } from '../utils/generator';
 Given('the user is on the dashboard page',{timeout:30000}, async function (this: CustomWorld) {
   const loginPage = new LoginPage(this.page);
   const dashboardPage = new DashboardPage(this.page);
-
   await loginPage.goto();
   await loginPage.fillEmail('vignesh.ponraj@crystaldelta.com');
   await loginPage.fillPassword('Vignesh@2701');
@@ -71,11 +70,11 @@ When('the user enters a random pincode into the Pincode field',{timeout:30000}, 
 
 When('the user selects a random assessment type checkbox from the Assessment Type section',{timeout:30000}, async function (this: CustomWorld) {
   const dashboardPage = new DashboardPage(this.page);
-  await dashboardPage.selectRandomAssessmentType();
+  await dashboardPage.selectAssessmentType();
 });
 When('the user selects a random assessment level checkbox from the Assessment Level section',{timeout:30000}, async function (this: CustomWorld) {
   const dashboardPage = new DashboardPage(this.page);
-  await dashboardPage.selectRandomAssessmentLevel();
+  await dashboardPage.selectAssessmentLevel();
 });
 
 When('the user clicks on the Create Button',{timeout:20000}, async function (this: CustomWorld) {
