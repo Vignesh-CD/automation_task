@@ -1,6 +1,6 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-import { LoginPage } from '../step-definitions/LoginPage';
-import { DashboardPage } from '../step-definitions/CreateOrganization';
+import { LoginPage } from '../pages/LoginPage';
+import { DashboardPage } from '../pages/CreateOrganization';
 import { CustomWorld } from '../support/world';
 
 Given('the user is on the login page', {timeout:10000}, async function (this: CustomWorld) {

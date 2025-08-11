@@ -5,7 +5,8 @@ export class CustomWorld extends World {
   browser!: Browser;
   context!: BrowserContext;
   page!: Page;
-  orgName?: string; 
+  randomOrgName?: string; 
+  randomPincode?: string;
 
   constructor(options: IWorldOptions) {
     super(options);
